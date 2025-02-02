@@ -1,0 +1,75 @@
+@charset "utf-8";
+ 
+
+/* Estilos gerais */
+body {
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 1.5;
+    background: linear-gradient(135deg, #141414, #e50914); /* Degradê do preto ao vermelho característico da Netflix */
+    color: #fff; /* Texto em branco para melhor contraste com o fundo */
+    display: flex;
+    justify-content: center; /* Alinha o conteúdo centralizado */
+    align-items: center; /* Alinha o conteúdo verticalmente */
+    height: 100vh; /* Altura da tela inteira */
+    margin: 0; /* Remove a margem padrão do body */
+}
+
+/* Cabeçalhos */
+h1 {
+    color: #fff; /* Mudando para branco para contrastar com o fundo escuro */
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+form {
+    background-color: #fff; /* Fundo branco para o formulário */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para o formulário */
+    text-align: center;
+    width: 100%;
+    max-width: 400px; /* Limita a largura do formulário */
+}
+
+/* Botões */
+.botao, .botao1 {
+    display: inline-block;
+    background-color: #e50914; /* Cor vermelha como na Netflix */
+    color: #fff; /* Texto branco para contraste */
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #e50914;
+    padding: 10px 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Efeito de transição */
+}
+ 
+.botao:hover, .botao1:hover {
+    background-color: #b20710;
+    color: #f4f4f9;
+}
+
+/* Caixas de entrada */
+.caixa1, .caixa2 {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #e50914; /* Borda vermelha para combinar com o botão */
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    box-sizing: border-box; /* Para evitar estouro de layout */
+}
+
+/* Estilo adicional para foco */
+.caixa1:focus, .caixa2:focus {
+    border-color: #b20710; /* Muda a cor ao focar para um tom mais escuro de vermelho */
+    outline: none;
+    box-shadow: 0 0 5px #b20710;
+}

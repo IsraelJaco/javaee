@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Contactos</title>
+    <link rel="icon" href="Imagens/relatorio.png">
+    <style>
+        /* Estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #005f86;
+            color: white;
+            width: 100%;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Conteúdo principal */
+        .container {
+            text-align: center;
+            margin-top: 100px;
+            padding: 20px;
+        }
+
+        img {
+            width: 120px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #005f86;
+            margin-top: 20px;
+        }
+
+        .botao {
+            display: inline-block;
+            margin: 20px;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 16px;
+            color: white;
+            background-color: #005f86;
+            border-radius: 5px;
+            transition: 0.3s ease;
+            font-weight: bold;
+        }
+
+        .botao:hover {
+            background-color: #003d5c;
+            transform: scale(1.05);
+        }
+
+        /* Estilo do Carrossel */
+        .carrossel-container {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .carrossel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carrossel img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Botões do carrossel */
+        .carrossel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 95, 134, 0.8);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        .carrossel-btn:hover {
+            background-color: #003d5c;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #005f86;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">Agenda de Contactos</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="agenda.jsp">Contactos</a></li>
+                <li><a href="#">Ajuda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <img src="Imagens/relatorio.png" alt="Ícone do Relatório">
+        <h1>Bem-vindo à Agenda de Contactos</h1>
+        <p>Gerencie seus contatos de forma simples e eficiente.</p>
+        <a href="main" class="botao">Acessar</a>
+    </div>
+
+    <!-- Carrossel -->
+    <div class="carrossel-container">
+        <button class="carrossel-btn prev" onclick="mudarSlide(-1)">&#10094;</button>
+        <div class="carrossel">
+            <img src="Imagens/agenda1.jpg" alt="Imagem 1">
+            <img src="Imagens/agenda2.jpg" alt="Imagem 2">
+            <img src="Imagens/agenda3.jpg" alt="Imagem 3">
+            <img src="Imagens/agenda1.jpg" alt="Imagem 1">
+            <img src="Imagens/agenda2.jpg" alt="Imagem 2">
+            <img src="Imagens/agenda3.jpg" alt="Imagem 3">
+        </div>
+        <button class="carrossel-btn next" onclick="mudarSlide(1)">&#10095;</button>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        &copy; 2025 Agenda de Contactos - Todos os direitos reservados.
+    </footer>
+
+    <script>
+        let index = 0;
+        function mudarSlide(direcao) {
+            const carrossel = document.querySelector(".carrossel");
+            const totalSlides = document.querySelectorAll(".carrossel img").length;
+            index += direcao;
+
+            if (index < 0) {
+                index = totalSlides - 3; // Ajustar para o número de imagens distintas
+            } else if (index >= totalSlides - 2) {
+                index = 0;
+            }
+
+            carrossel.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        // Troca automática do slide a cada 5 segundos
+        setInterval(() => mudarSlide(1), 5000);
+    </script>
+
+</body>
+</html>
